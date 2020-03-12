@@ -1,88 +1,55 @@
 from flask import Flask, make_response, jsonify
 from flask_cors import *
+from DbHandle import *
 
 app = Flask(__name__)
 # 跨域
 CORS(app, supports_credentials=True)
+DbHandle = DataBaseHandle('47.106.163.115','StoreUniappApi','SDKa5jpJFERiPJY6','StoreUniappApi',3306)
 
 
 @app.route('/getSwiper', methods=["POST"])
 def getSwiper():
-    data = [
-        {
-            'title': 'Nike React Vision',
-            'content': '男子运动鞋演绎非凡舒适体验',
-            'id': 1,
-            'style': 'oringe',
-            'pic': '/static/images/goods/Nike React Vision/Nike React Vision 1.jpg'
-        },
-        {
-            'title': 'Nike NSW React Vision',
-            'content': '灵感来源于墨西哥民间艺术神话人物',
-            'id': 2,
-            'style': 'blue',
-            'pic': '/static/images/goods/Nike NSW React Vision/Nike NSW React Vision 1.jpg'
-        },
-        {
-            'title': 'Jumpman Diamond Low PF',
-            'content': '汀克·哈特菲尔德亲自设计',
-            'id': 3,
-            'style': 'red',
-            'pic': '/static/images/goods/Jumpman Diamond Low PF/Jumpman Diamond Low PF 1.jpg'
-        }
-    ]
+    res = DbHandle.selectDb('select * from swiper')
+    data = []
+    for i in res:
+        data.append(
+            {
+                'id': i[0],
+                'title': i[1],
+                'content': i[2],
+                'style': i[3],
+                'pic': i[4]
+            }
+        )
     response = make_response(jsonify(data))
     return response
 
 
 @app.route('/getPopular', methods=["POST"])
 def getPopular():
-    data = [
-        {
-            'pic': '/static/images/most-popular/1.png'
-        },
-        {
-            'pic': '/static/images/most-popular/2.png'
-        },
-        {
-            'pic': '/static/images/most-popular/3.png'
-        },
-        {
-            'pic': '/static/images/most-popular/4.png'
-        },
-        {
-            'pic': '/static/images/most-popular/5.png'
-        },
-        {
-            'pic': '/static/images/most-popular/5.png'
-        }
-    ]
+    res = DbHandle.selectDb('select * from popular')
+    data = []
+    for i in res:
+        data.append(
+            {
+                'pic': i[1]
+            }
+        )
     response = make_response(jsonify(data))
     return response
 
 
 @app.route('/getDiscover', methods=["POST"])
 def getDiscover():
-    data = [
-        {
-            'pic': '/static/images/discover/1.jpg'
-        },
-        {
-            'pic': '/static/images/discover/2.jpg'
-        },
-        {
-            'pic': '/static/images/discover/3.jpg'
-        },
-        {
-            'pic': '/static/images/discover/4.jpg'
-        },
-        {
-            'pic': '/static/images/discover/5.jpg'
-        },
-        {
-            'pic': '/static/images/discover/6.jpg'
-        }
-    ]
+    res = DbHandle.selectDb('select * from discover')
+    data = []
+    for i in res:
+        data.append(
+            {
+                'pic': i[1]
+            }
+        )
     response = make_response(jsonify(data))
     return response
 
@@ -138,4 +105,5 @@ def getGoods():
 
 
 if __name__ == '__main__':
+    app.debug = True
     app.run()
