@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d879f1ae-2209-4ced-ae4c-0a6c9338f0b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DbHandle.py" beforeDir="false" afterPath="$PROJECT_DIR$/DbHandle.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
+            <state relative-caret-position="436">
+              <caret line="97" column="31" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -29,7 +28,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DbHandle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
+            <state relative-caret-position="2024">
               <caret line="92" column="16" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="16" />
             </state>
           </provider>
@@ -81,6 +80,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -92,7 +92,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -191,18 +190,19 @@
       <workItem from="1583983553151" duration="317000" />
       <workItem from="1583984738523" duration="1464000" />
       <workItem from="1583994581576" duration="1471000" />
-      <workItem from="1584064983485" duration="1864000" />
+      <workItem from="1584064983485" duration="2042000" />
+      <workItem from="1584075270014" duration="449000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7437000" />
+    <option name="totallyTimeSpent" value="8064000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16577825" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1673774" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -261,23 +261,23 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Store_uniapp_api$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1584066169137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Store_uniapp_api$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1584075541617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DbHandle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="92" column="16" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
+        <state relative-caret-position="436">
+          <caret line="97" column="31" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DbHandle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2024">
+          <caret line="92" column="16" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="16" />
         </state>
       </provider>
     </entry>

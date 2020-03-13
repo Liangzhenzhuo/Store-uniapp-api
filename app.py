@@ -83,18 +83,19 @@ def getCategories():
 
 @app.route('/getGoods', methods=["POST"])
 def getGoods():
-    res = DbHandle.selectDb('select goods.id, goods.title, goods.price, goods.originPrice, good_images.pic_address from goods inner join good_images on goods.id = good_images.good_id')
+    res = DbHandle.selectDb('select * from goods')
     data = []
-    print(res)
     if res:
         for i in res:
+            res2 = DbHandle.selectDb('select pic_address from good_images where good_id="{}"'.format(i[0]))
+            pics = [x[0] for x in res2]
             data.append(
                 {
                     'id': i[0],
                     'title': i[1],
                     'price': float(i[2]),
                     'originPrice': float(i[3]),
-                    'pic': i[4]
+                    'pic': pics
                 }
             )
     response = make_response(jsonify(data))
