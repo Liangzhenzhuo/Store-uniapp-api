@@ -1,4 +1,4 @@
-from flask import Flask, make_response, jsonify
+from flask import Flask, make_response, jsonify, request
 from flask_cors import *
 from DbHandle import *
 
@@ -84,6 +84,28 @@ def getCategories():
 @app.route('/getGoods', methods=["POST"])
 def getGoods():
     res = DbHandle.selectDb('select * from goods')
+    data = []
+    if res:
+        for i in res:
+            res2 = DbHandle.selectDb('select pic_address from good_images where good_id="{}"'.format(i[0]))
+            pics = [x[0] for x in res2]
+            data.append(
+                {
+                    'id': i[0],
+                    'title': i[1],
+                    'price': float(i[2]),
+                    'originPrice': float(i[3]),
+                    'pic': pics
+                }
+            )
+    response = make_response(jsonify(data))
+    return response
+
+
+@app.route('/getGoodInfoById', methods=["POST"])
+def getGoodInfoById():
+    id = request.form.get('id')
+    res = DbHandle.selectDb('select * from goods where id="{}"'.format(id))
     data = []
     if res:
         for i in res:
