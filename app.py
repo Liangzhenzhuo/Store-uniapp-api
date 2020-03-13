@@ -5,23 +5,24 @@ from DbHandle import *
 app = Flask(__name__)
 # 跨域
 CORS(app, supports_credentials=True)
-DbHandle = DataBaseHandle('47.106.163.115','StoreUniappApi','SDKa5jpJFERiPJY6','StoreUniappApi',3306)
+DbHandle = DataBaseHandle('47.240.161.245','StoreUniappApi','SDKa5jpJFERiPJY6','StoreUniappApi', 3306)
 
 
 @app.route('/getSwiper', methods=["POST"])
 def getSwiper():
     res = DbHandle.selectDb('select * from swiper')
     data = []
-    for i in res:
-        data.append(
-            {
-                'id': i[0],
-                'title': i[1],
-                'content': i[2],
-                'style': i[3],
-                'pic': i[4]
-            }
-        )
+    if res:
+        for i in res:
+            data.append(
+                {
+                    'id': i[0],
+                    'title': i[1],
+                    'content': i[2],
+                    'style': i[3],
+                    'pic': i[4]
+                }
+            )
     response = make_response(jsonify(data))
     return response
 
@@ -30,12 +31,13 @@ def getSwiper():
 def getPopular():
     res = DbHandle.selectDb('select * from popular')
     data = []
-    for i in res:
-        data.append(
-            {
-                'pic': i[1]
-            }
-        )
+    if res:
+        for i in res:
+            data.append(
+                {
+                    'pic': i[1]
+                }
+            )
     response = make_response(jsonify(data))
     return response
 
@@ -44,12 +46,13 @@ def getPopular():
 def getDiscover():
     res = DbHandle.selectDb('select * from discover')
     data = []
-    for i in res:
-        data.append(
-            {
-                'pic': i[1]
-            }
-        )
+    if res:
+        for i in res:
+            data.append(
+                {
+                    'pic': i[1]
+                }
+            )
     response = make_response(jsonify(data))
     return response
 
@@ -80,26 +83,20 @@ def getCategories():
 
 @app.route('/getGoods', methods=["POST"])
 def getGoods():
-    data = [
-        {
-            'title': 'Jumpman Diamond Low PF',
-            'pic': '/static/images/goods/Jumpman Diamond Low PF/Jumpman Diamond Low PF 1.jpg',
-            'price': 300,
-            'originPrice': 720
-        },
-        {
-            'title': 'Nike NSW React Vision',
-            'pic': '/static/images/goods/Nike NSW React Vision/Nike NSW React Vision 1.jpg',
-            'price': 200,
-            'originPrice': 650
-        },
-        {
-            'title': 'Nike React Vision',
-            'pic': '/static/images/goods/Nike React Vision/Nike React Vision 1.jpg',
-            'price': 700,
-            'originPrice': 1300
-        }
-    ]
+    res = DbHandle.selectDb('select goods.id, goods.title, goods.price, goods.originPrice, good_images.pic_address from goods inner join good_images on goods.id = good_images.good_id')
+    data = []
+    print(res)
+    if res:
+        for i in res:
+            data.append(
+                {
+                    'id': i[0],
+                    'title': i[1],
+                    'price': float(i[2]),
+                    'originPrice': float(i[3]),
+                    'pic': i[4]
+                }
+            )
     response = make_response(jsonify(data))
     return response
 

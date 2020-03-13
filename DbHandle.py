@@ -100,7 +100,7 @@ class DataBaseHandle(object):
 
             return data
         except:
-            print('Error: unable to fecth data')
+            return False
         finally:
             self.cursor.close()
 
